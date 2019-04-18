@@ -10,11 +10,6 @@ import { FaBeer } from "react-icons/fa"
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <h3>Hello from index</h3>
-    <ButtonWrapper>Click Me</ButtonWrapper>
-    <p>
-      <FaBeer />
-    </p>
   </Layout>
 )
 
