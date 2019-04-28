@@ -1,5 +1,6 @@
 /* You can use CSS vars with Gatsby*/
 :root {
+  --mainYellow: #d2aa5c;
   --mainOrange: #f15025;
 }
 
