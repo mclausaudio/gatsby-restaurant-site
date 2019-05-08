@@ -8,7 +8,7 @@ import { HomeHeader, Banner, BannerButton } from "../utils"
 
 import image from "../images/bcg/homeBcg.jpeg"
 
-import { FaBeer } from "react-icons/fa"
+import QuickInfo from "../components/HomepageComponents/QuickInfo"
 
 const IndexPage = () => (
   <Layout>
@@ -18,6 +18,7 @@ const IndexPage = () => (
         <BannerButton style={{ margin: "2rem auto" }}>menu</BannerButton>
       </Banner>
     </HomeHeader>
+    <QuickInfo />
   </Layout>
 )
 
