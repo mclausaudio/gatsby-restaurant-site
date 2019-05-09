@@ -6,40 +6,16 @@ import { styles, Section } from "../../utils"
 import { StaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 
-// const SINGLE_IMAGE = graphql`
-//   {
-//     img1: file(relativePath: { eq: "homeGallery/img-1.jpeg" }) {
-//       childImageSharp {
-//         fluid(maxWidth: 500) {
-//           ...GatsbyImageSharpFluid_tracedSVG
-//         }
-//       }
-//     }
-//   }
-// `
-
-//Below is just an example, this would work too.. to query multiple images
-//but if you wanan do a bunch of images this wouldn't really be the most effective
-const MULTI_IMAGE = graphql`
+const GET_IMAGES = graphql`
   {
-    img1: file(relativePath: { eq: "homeGallery/img-1.jpeg" }) {
-      childImageSharp {
-        fluid(maxWidth: 500) {
-          ...GatsbyImageSharpFluid_tracedSVG
-        }
-      }
-    }
-    img2: file(relativePath: { eq: "homeGallery/img-2.jpeg" }) {
-      childImageSharp {
-        fluid(maxWidth: 500) {
-          ...GatsbyImageSharpFluid_tracedSVG
-        }
-      }
-    }
-    img3: file(relativePath: { eq: "homeGallery/img-3.jpeg" }) {
-      childImageSharp {
-        fluid(maxWidth: 500) {
-          ...GatsbyImageSharpFluid_tracedSVG
+    getImages: allFile(filter: { relativeDirectory: { eq: "homeGallery" } }) {
+      edges {
+        node {
+          childImageSharp {
+            fluid(maxWidth: 500) {
+              ...GatsbyImageSharpFluid_tracedSVG
+            }
+          }
         }
       }
     }
@@ -49,26 +25,30 @@ const MULTI_IMAGE = graphql`
 export default function Gallery() {
   return (
     <StaticQuery
-      query={MULTI_IMAGE}
+      query={GET_IMAGES}
       render={data => {
-        const img1 = data.img1.childImageSharp.fluid
-        const img2 = data.img2.childImageSharp.fluid
-        const img3 = data.img3.childImageSharp.fluid
+        const images = data.getImages.edges
+        const descriptions = [
+          "Delicious pizza",
+          "tasty pork",
+          "beautiful steak",
+        ]
         return (
           <Section>
             <GalleryWrapper>
-              <div className="item item-1">
-                <Img fluid={img1} />
-                <p className="info">Delicious pizza</p>
-              </div>
-              <div className="item item-2">
-                <Img fluid={img2} />
-                <p className="info">Tasty Pork</p>
-              </div>
-              <div className="item item-3">
-                <Img fluid={img3} />
-                <p className="info">Beautiful Steak</p>
-              </div>
+              {/* in this case, each item has a node object, which is the way gatsby graphql returns... if you're ever in doubt just console.log things, its the way the query returnds */}
+              {/* So we are doing a bit of destructuring to get just the node object from the item */}
+              {images.map(({ node }, index) => {
+                return (
+                  <div className={`item item-${index + 1}`} key={index}>
+                    <Img fluid={node.childImageSharp.fluid} />
+                    {/* these are hardcoded, picture stored locally */}
+                    {/* If we were using contentful, we could supply any additional info below */}
+                    {/* but in this case since the photos are from a folder, we would need an arry ot descrptions to loop over as well */}
+                    <p className="info">{descriptions[index]}</p>
+                  </div>
+                )
+              })}
             </GalleryWrapper>
           </Section>
         )
