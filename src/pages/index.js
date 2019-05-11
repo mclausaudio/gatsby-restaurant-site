@@ -10,6 +10,7 @@ import image from "../images/bcg/homeBcg.jpeg"
 
 import QuickInfo from "../components/HomepageComponents/QuickInfo"
 import Gallery from "../components/HomepageComponents/Gallery"
+import Menu from "../components/HomepageComponents/Menu"
 
 const IndexPage = () => (
   <Layout>
@@ -21,6 +22,7 @@ const IndexPage = () => (
     </HomeHeader>
     <QuickInfo />
     <Gallery />
+    <Menu />
   </Layout>
 )
 
