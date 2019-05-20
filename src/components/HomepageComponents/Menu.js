@@ -10,7 +10,7 @@ import styled from "styled-components"
 
 const PRODUCTS = graphql`
   {
-    items: allContentfulMenuItem {
+    items: allContentfulFeaturedItems {
       edges {
         node {
           name
@@ -35,6 +35,7 @@ export default function Menu() {
         <StaticQuery
           query={PRODUCTS}
           render={data => {
+            console.log(data)
             const products = data.items.edges
             return products.map(item => {
               return <Product key={item.node.id} product={item.node} />
@@ -43,7 +44,7 @@ export default function Menu() {
         />
       </ProductList>
       <Link to="/menu" style={{ textDecoration: "none" }}>
-        <SectionButton style={{ margin: "2rem auto" }}>menu</SectionButton>
+        <SectionButton style={{ margin: "2rem auto" }}>full menu</SectionButton>
       </Link>
     </Section>
   )

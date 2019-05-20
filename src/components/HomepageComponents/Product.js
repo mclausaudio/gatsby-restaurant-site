@@ -5,8 +5,9 @@ import { styles } from "../../utils"
 
 import Img from "gatsby-image"
 
-// destruction the product off of props, so we don't have to keep writing props.product
+// destructring the product off of props, so we don't have to keep writing props.product
 export default function Product({ product }) {
+  console.log(product)
   const { name, price, ingredients } = product
   const { fixed } = product.image
   return (
