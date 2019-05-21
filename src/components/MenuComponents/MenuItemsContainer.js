@@ -2,7 +2,13 @@ import React, { Component } from "react"
 
 import styled from "styled-components"
 
-import { SectionButton } from "../../utils"
+import {
+  SectionButton,
+  MenuButton,
+  Product,
+  ProductList,
+  Title,
+} from "../../utils"
 
 const getCategories = items => {
   let tempItems = items.map(items => {
@@ -31,6 +37,7 @@ export default class MenuItemsContainer extends Component {
     this.state = {
       menuItems: props.menuItems,
       displayedItems: props.menuItems,
+      currentCategory: "all",
       categories: getCategories(props.menuItems),
     }
   }
@@ -40,15 +47,16 @@ export default class MenuItemsContainer extends Component {
     if (cat === "all") {
       this.setState({
         displayedItems: tempItems,
+        currentCategory: cat,
       })
     } else {
-      console.log("tempItems from inside handleItems", tempItems)
       let items = tempItems.filter(({ node }) => {
         console.log(node.name)
         return node.categoryList.indexOf(cat) >= 0
       })
       this.setState({
         displayedItems: items,
+        currentCategory: cat,
       })
     }
   }
@@ -60,16 +68,22 @@ export default class MenuItemsContainer extends Component {
         <CategoryButtonWrapper>
           {this.state.categories.map((cat, index) => {
             return (
-              <SectionButton key={index} onClick={() => this.handleItems(cat)}>
+              <MenuButton
+                style={{ margin: "0.4rem" }}
+                key={index}
+                onClick={() => this.handleItems(cat)}
+              >
                 {cat}
-              </SectionButton>
+              </MenuButton>
             )
           })}
         </CategoryButtonWrapper>
-        {displayedItems.map(item => {
-          console.log(item)
-          return <p>{item.node.name}</p>
-        })}
+        <Title title={`${this.state.currentCategory} Items`} />
+        <ProductList>
+          {displayedItems.map(item => {
+            return <Product product={item.node} />
+          })}
+        </ProductList>
       </div>
     )
   }

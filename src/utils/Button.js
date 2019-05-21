@@ -33,4 +33,9 @@ const SectionButton = styled(BannerButton)`
   }
 `
 
-export { BannerButton, SectionButton }
+const MenuButton = styled(SectionButton)`
+  font-size: 1.1rem;
+  letter-spacing: 0.2rem;
+`
+
+export { BannerButton, SectionButton, MenuButton }

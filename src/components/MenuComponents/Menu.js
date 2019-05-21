@@ -15,8 +15,8 @@ const GET_MENU = graphql`
           price
           ingredients
           image {
-            fixed {
-              src
+            fixed(height: 150, width: 150) {
+              ...GatsbyContentfulFixed_tracedSVG
             }
           }
           categoryList
@@ -30,12 +30,11 @@ export default class Menu extends Component {
   render() {
     return (
       <Section>
-        <Title title="menu" subtitle="neighborhood favorites" />
+        <Title title="menu" />
         <StaticQuery
           query={GET_MENU}
           render={data => {
             const menuItems = data.menuItems.edges
-            console.log(menuItems, "menuItems from Menu.js")
             return <MenuItemsContainer menuItems={menuItems} />
           }}
         />

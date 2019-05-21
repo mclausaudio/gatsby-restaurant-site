@@ -1,10 +1,14 @@
 import React from "react"
 
-import Product from "./Product"
-
 import { StaticQuery, graphql, Link } from "gatsby"
 
-import { Section, SectionButton, Title } from "../../utils"
+import {
+  Section,
+  SectionButton,
+  Title,
+  Product,
+  ProductList,
+} from "../../utils"
 
 import styled from "styled-components"
 
@@ -50,24 +54,24 @@ export default function Menu() {
   )
 }
 
-const ProductList = styled.div`
-  margin: 3rem 0;
-  display: grid;
-  grid-template-columns: 100%;
-  grid-row-gap: 3rem;
+// const ProductList = styled.div`
+//   margin: 3rem 0;
+//   display: grid;
+//   grid-template-columns: 100%;
+//   grid-row-gap: 3rem;
 
-  @media (min-width: 576px) {
-    grid-template-columns: 95%;
-  }
+//   @media (min-width: 576px) {
+//     grid-template-columns: 95%;
+//   }
 
-  @media (min-width: 776px) {
-    grid-template-columns: 80%;
-    justify-content: center;
-  }
+//   @media (min-width: 776px) {
+//     grid-template-columns: 80%;
+//     justify-content: center;
+//   }
 
-  @media (min-width: 992px) {
-    /* 1fr 1fr -- working with fractions, so this means it would be 2 coloumns */
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 2rem;
-  }
-`
+//   @media (min-width: 992px) {
+//     /* 1fr 1fr -- working with fractions, so this means it would be 2 coloumns */
+//     grid-template-columns: 1fr 1fr;
+//     grid-gap: 2rem;
+//   }
+// `

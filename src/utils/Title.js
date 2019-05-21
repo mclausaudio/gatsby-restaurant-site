@@ -5,7 +5,7 @@ import styled from "styled-components"
 export function Title({ title, subtitle }) {
   return (
     <TitleWrapper>
-      <h3 className="subtitle">{subtitle}</h3>
+      {subtitle && <h3 className="subtitle">{subtitle}</h3>}
       <h1 className="title">{title}</h1>
       <div className="underline" />
     </TitleWrapper>
@@ -13,7 +13,7 @@ export function Title({ title, subtitle }) {
 }
 
 Title.defaultProps = {
-  subtitle: "subtitle",
+  // subtitle: "subtitle",
   title: "title",
 }
 
