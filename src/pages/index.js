@@ -4,7 +4,7 @@ import styled from "styled-components"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { HomeHeader, Banner, BannerButton } from "../utils"
+import { HomeHeader, HomeBanner, BannerButton } from "../utils"
 
 import image from "../images/bcg/homeBcg.jpeg"
 
@@ -18,9 +18,10 @@ const IndexPage = () => (
   <Layout>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
     <HomeHeader image={image}>
-      <Banner
+      <HomeBanner
         title="eatery"
-        subtitle="1234 9th Ave & 4321 12th St, San Francisco CA"
+        subtitle1={{ address: "1234 9th Ave, SF", phone: "(415) 123-4567" }}
+        subtitle2={{ address: "5678 18th St, SF", phone: "(415) 555-9247" }}
       >
         <BannerButtonWrapper>
           <Link to="/menu" style={{ textDecoration: "none" }}>
@@ -34,7 +35,7 @@ const IndexPage = () => (
             </BannerButton>
           </Link>
         </BannerButtonWrapper>
-      </Banner>
+      </HomeBanner>
     </HomeHeader>
     <QuickInfo />
     <Gallery />
