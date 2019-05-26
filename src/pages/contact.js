@@ -22,8 +22,8 @@ const ContactPage = () => (
       <Title title="Contact" />
       <ContactText>
         <p>
-          Give one of our locations a call to place an order for pickup or
-          delivery.
+          Give one of our locations a call to make reservations or to place an
+          order for pickup or delivery.
         </p>
         <h3>We also do catering!</h3>
       </ContactText>

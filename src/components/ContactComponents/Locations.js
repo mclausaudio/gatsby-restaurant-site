@@ -61,8 +61,8 @@ const LocationsWrapper = styled.div`
   grid-template-columns: auto;
   grid-row-gap: 1rem;
   max-width: 1000px;
-  margin: 0 auto;
-  @media (min-width: 576px) {
+  margin: 2rem auto;
+  @media (min-width: 776px) {
     /* below is fractions, so its 2 columns */
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 1rem;
