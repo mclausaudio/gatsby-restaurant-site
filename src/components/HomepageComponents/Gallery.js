@@ -41,7 +41,6 @@ export default function Gallery() {
               {images.map(({ node }, index) => {
                 return (
                   <div className={`item item-${index + 1}`} key={index}>
-                    {console.log(node)}
                     <Img fluid={node.childImageSharp.fluid} />
                     {/* these are hardcoded, picture stored locally */}
                     {/* If we were using contentful, we could supply any additional info below */}

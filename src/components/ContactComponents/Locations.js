@@ -33,16 +33,26 @@ const Locations = () => {
             {
               address: "1234 9th Ave, SF",
               phone: "(415) 123-4567",
+              hours: {
+                Mon_Fri: "10am - 11pm",
+                Sat_Sun: "9am - 1am",
+              },
+              description:
+                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid odit voluptate magni quas impedit rerum itaque, obcaecati libero facilis eaque laboriosam iste veniam nulla necessitatibus",
             },
             {
               address: "4321 12 St, SF",
               phone: "(415) 321-7654",
+              hours: {
+                Mon_Fri: "10am - 11pm",
+                Sat_Sun: "9am - 1am",
+              },
+              description:
+                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid odit voluptate magni quas impedit rerum itaque, obcaecati libero facilis eaque laboriosam iste veniam nulla necessitatibus",
             },
           ]
-          console.log(locations)
+
           return locations.map(({ node }, index) => {
-            console.log(node.childImageSharp.fluid)
-            console.log(index)
             return (
               <LocationCard
                 fluid={node.childImageSharp.fluid}
@@ -59,8 +69,8 @@ const Locations = () => {
 const LocationsWrapper = styled.div`
   display: grid;
   grid-template-columns: auto;
-  grid-row-gap: 1rem;
-  max-width: 1000px;
+  grid-row-gap: 2rem;
+  max-width: 950px;
   margin: 2rem auto;
   @media (min-width: 776px) {
     /* below is fractions, so its 2 columns */

@@ -39,7 +39,6 @@ export default function Menu() {
         <StaticQuery
           query={PRODUCTS}
           render={data => {
-            console.log(data)
             const products = data.items.edges
             return products.map(item => {
               return <Product key={item.node.id} product={item.node} />

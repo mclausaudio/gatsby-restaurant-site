@@ -14,10 +14,9 @@ const getCategories = items => {
   let tempItems = items.map(items => {
     return items.node.categoryList
   })
-  console.log("tempItems", tempItems)
+
   let tempCategories = []
   tempItems.map(item => {
-    console.log(typeof item)
     if (typeof item === "object") {
       item.map(cat => {
         if (tempCategories.indexOf(cat) < 0) {
@@ -51,7 +50,6 @@ export default class MenuItemsContainer extends Component {
       })
     } else {
       let items = tempItems.filter(({ node }) => {
-        console.log(node.name)
         return node.categoryList.indexOf(cat) >= 0
       })
       this.setState({

@@ -30,7 +30,6 @@ export default function AboutGallery() {
       query={GALLERY_IMAGES}
       render={data => {
         const images = data.aboutGalleryImages.edges
-        console.log(images)
         return (
           <Section>
             <AboutGalleryWrapper>
