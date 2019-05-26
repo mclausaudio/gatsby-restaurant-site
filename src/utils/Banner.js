@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 import { styles } from "../utils"
 
-export default function Banner({ title, subtitle, children }) {
+export default function Banner({ title, subtitle, subtitle2, children }) {
   return (
     <BannerWrapper>
       <h1 className="title">{title}</h1>

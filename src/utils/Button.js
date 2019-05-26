@@ -10,7 +10,7 @@ const BannerButton = styled.button`
   text-align: center;
   text-transform: uppercase;
   font-size: 1.5rem;
-  letter-spacing: 0.5rem;
+  letter-spacing: 0.3rem;
   font-weight: 700;
   ${styles.border({ color: `${styles.colors.mainWhite}` })};
   margin-bottom: 1rem;
